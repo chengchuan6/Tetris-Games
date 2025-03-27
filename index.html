@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Games - Best Online Block Stacking Puzzle Experience</title>
+    <meta name="description" content="Play the classic Tetris Games online for free. Challenge yourself with our addictive block-stacking puzzle game that tests your reflexes and strategy.">
+    <link rel="canonical" href="https://tetrisgames.online">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonPink: '#ff00ff',
+                        neonBlue: '#00f0ff',
+                        neonPurple: '#9900ff',
+                        darkGray: '#0a0a0a',
+                        cyberBlack: '#0d0d0f',
+                    },
+                    fontFamily: {
+                        cyber: ['Orbitron', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        neon: '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff',
+                        neonBlue: '0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 15px #00f0ff',
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+        
+        body {
+            background-color: #0d0d0f;
+            background-image: 
+                linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .neon-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(to right, #ff00ff, #00f0ff) 1;
+            animation: border-pulse 4s infinite;
+        }
+        
+        .grid-bg {
+            background-image: linear-gradient(rgba(13, 13, 15, 0.8), rgba(13, 13, 15, 0.8)),
+                linear-gradient(to right, #ff00ff11 1px, transparent 1px),
+                linear-gradient(to bottom, #00f0ff11 1px, transparent 1px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+        }
+        
+        @keyframes border-pulse {
+            0% { box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+            50% { box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
+            100% { box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+        }
+        
+        @keyframes text-glow {
+            0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+            50% { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; }
+            100% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+        }
+        
+        .text-glow {
+            animation: text-glow 4s infinite;
+        }
+        
+        .custom-bg-gradient {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(0, 240, 255, 0.1) 100%);
+        }
+    </style>
+</head>
+<body class="font-cyber text-white min-h-screen">
+    <header class="py-4 px-4 md:px-10 border-b border-neonPink/30">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <svg class="w-10 h-10 mr-3 text-neonPink" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M2 2h8v4h-8zM14 2h8v8h-8zM2 8h8v8h-8zM14 14h8v8h-8zM2 18h8v4h-8z"></path>
+                </svg>
+                <a href="/" class="text-2xl md:text-3xl font-bold tracking-wider text-white">
+                    <span class="text-neonPink">TETRIS</span>
+                    <span class="text-neonBlue">GAMES</span>
+                </a>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-neonPink transition-colors duration-300">Home</a></li>
+                    <li><a href="#how-to-play" class="hover:text-neonPink transition-colors duration-300">How To Play</a></li>
+                    <li><a href="#game-features" class="hover:text-neonPink transition-colors duration-300">Features</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-10 py-8">
+        <!-- Hero Section with H1 -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-wider text-glow">
+                <span class="text-neonPink">TETRIS</span> 
+                <span class="text-neonBlue">GAMES</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300">
+                Master the art of block stacking in this addictive puzzle challenge that tests your speed and strategy.
+            </p>
+            <div class="grid-bg neon-border p-3 md:p-4 rounded-lg max-w-5xl mx-auto">
+                <div class="relative pb-[56.25%] h-0 overflow-hidden rounded">
+                    <iframe src="https://www.crazygames.com/embed/drop-merge-the-numbers" 
+                            class="absolute top-0 left-0 w-full h-full border-0"
+                            allow="gamepad *; fullscreen *; autoplay"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Play Section -->
+        <section id="how-to-play" class="my-16 custom-bg-gradient p-6 rounded-lg neon-border">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-neonBlue tracking-wide">
+                HOW TO PLAY TETRIS
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="mb-4">
+                        Tetris is the ultimate block-stacking puzzle game that challenges your reflexes and strategic thinking. 
+                        The goal is simple: arrange falling tetrominoes (geometric shapes composed of four square blocks) to create 
+                        complete horizontal lines, which then disappear from the playfield.
+                    </p>
+                    <p>
+                        As you progress, the blocks fall faster, increasing the difficulty and excitement. 
+                        The game ends when the stack of blocks reaches the top of the playing field and no new tetrominoes can enter.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-neonPink">Controls:</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">←/→</span>
+                            <span>Move blocks left/right</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">↓</span>
+                            <span>Soft drop (accelerate)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">↑</span>
+                            <span>Rotate block</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">SPACE</span>
+                            <span>Hard drop (instant placement)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Features Section -->
+        <section id="game-features" class="my-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-neonBlue tracking-wide">
+                GAME FEATURES
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-cyberBlack p-6 rounded-lg border border-neonPink/30 hover:border-neonPink/70 transition-colors duration-300">
+                    <div class="text-neonPink text-4xl mb-4">01</div>
+                    <h3 class="text-xl font-semibold mb-2">Classic Gameplay</h3>
+                    <p class="text-gray-400">
+                        Experience the traditional Tetris gameplay that has captivated millions of players worldwide since 1984.
+                    </p>
+                </div>
+                <div class="bg-cyberBlack p-6 rounded-lg border border-neonBlue/30 hover:border-neonBlue/70 transition-colors duration-300">
+                    <div class="text-neonBlue text-4xl mb-4">02</div>
+                    <h3 class="text-xl font-semibold mb-2">Increasing Difficulty</h3>
+                    <p class="text-gray-400">
+                        Face progressively faster falling blocks as you advance, testing your reflexes and decision-making skills.
+                    </p>
+                </div>
+                <div class="bg-cyberBlack p-6 rounded-lg border border-neonPurple/30 hover:border-neonPurple/70 transition-colors duration-300">
+                    <div class="text-neonPurple text-4xl mb-4">03</div>
+                    <h3 class="text-xl font-semibold mb-2">Scoring System</h3>
+                    <p class="text-gray-400">
+                        Earn higher points by clearing multiple lines simultaneously, with special bonuses for Tetris (4 lines at once).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game History Section -->
+        <section class="my-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-neonBlue tracking-wide">
+                THE LEGACY OF TETRIS
+            </h2>
+            <div class="grid-bg p-6 rounded-lg">
+                <p class="mb-4">
+                    Created by Russian software engineer Alexey Pajitnov in 1984, Tetris has become one of the most recognized 
+                    and influential video games of all time. Its simple yet addictive gameplay has transcended generations and platforms, 
+                    from its original implementation on the Electronika 60 to modern consoles, computers, and mobile devices.
+                </p>
+                <p class="mb-4">
+                    The name "Tetris" comes from the Greek prefix "tetra-" (meaning "four") and the creator's favorite sport, tennis. 
+                    Each piece in the game, known as a tetromino, consists of four squares arranged in different configurations.
+                </p>
+                <p>
+                    Tetris is not just entertaining but has been studied for its cognitive benefits, including improved spatial reasoning, 
+                    decision-making skills, and even potential therapeutic applications for traumatic memories and PTSD.
+                </p>
+            </div>
+        </section>
+
+        <!-- Tips and Strategies Section -->
+        <section class="my-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-neonBlue tracking-wide">
+                STRATEGIES FOR SUCCESS
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-cyberBlack p-6 rounded-lg border-l-4 border-neonPink">
+                    <h3 class="text-xl font-semibold mb-3 text-neonPink">Beginner Tips</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Always try to build a flat surface for future pieces</li>
+                        <li>• Leave space for the I-piece (the long straight tetromino) to clear four lines at once</li>
+                        <li>• Don't rush your decisions, especially at lower levels</li>
+                        <li>• Learn to recognize piece patterns as they appear</li>
+                        <li>• Practice using the preview window to plan your next move</li>
+                    </ul>
+                </div>
+                <div class="bg-cyberBlack p-6 rounded-lg border-l-4 border-neonBlue">
+                    <h3 class="text-xl font-semibold mb-3 text-neonBlue">Advanced Techniques</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Master T-spins for bonus points and efficient clearing</li>
+                        <li>• Practice efficient piece stacking using the "7-bag" randomizer system</li>
+                        <li>• Learn wall kicks and rotation systems to place pieces in tight spots</li>
+                        <li>• Keep a "well" on the side for the I-piece to maximize Tetris clears</li>
+                        <li>• Develop muscle memory for quick decision-making at higher speeds</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-neonPink/30 py-8 mt-16">
+        <div class="container mx-auto px-4 md:px-10">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <svg class="w-8 h-8 mr-2 text-neonPink" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M2 2h8v4h-8zM14 2h8v8h-8zM2 8h8v8h-8zM14 14h8v8h-8zM2 18h8v4h-8z"></path>
+                        </svg>
+                        <span class="text-xl font-bold">
+                            <span class="text-neonPink">TETRIS</span>
+                            <span class="text-neonBlue">GAMES</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mt-2">© 2025 Tetris Games. All rights reserved.</p>
+                </div>
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+                    <a href="#" class="hover:text-neonPink transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-neonPink transition-colors duration-300">Terms of Service</a>
+                    <a href="#" class="hover:text-neonPink transition-colors duration-300">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
