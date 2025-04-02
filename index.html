@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,6 +97,10 @@
             border: 1px solid rgba(0, 255, 255, 0.1);
             background: rgba(19, 19, 38, 0.8);
             backdrop-filter: blur(10px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         .game-card:hover {
@@ -183,53 +188,6 @@
             display: block;
         }
 
-        .game-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .game-nav-item {
-            padding: 10px 15px;
-            background: rgba(0, 255, 255, 0.1);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            color: #00ffff;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .game-nav-item:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-            transition: 0.5s;
-        }
-        
-        .game-nav-item:hover:before {
-            left: 100%;
-        }
-
-        .game-nav-item:hover {
-            background: rgba(255, 0, 255, 0.2);
-            color: #ff00ff;
-            border-color: rgba(255, 0, 255, 0.3);
-        }
-
-        .game-nav-item.active {
-            background: linear-gradient(90deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-        }
-
         #gameContainer {
             border: 1px solid rgba(0, 255, 255, 0.3);
             background: rgba(10, 10, 18, 0.7);
@@ -261,95 +219,126 @@
             z-index: 1;
         }
 
-        .featured-games {
+        .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
         }
 
-        .featured-game {
+        .game-nav-card {
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            border-radius: 8px;
             background: rgba(19, 19, 38, 0.6);
             border: 1px solid rgba(0, 255, 255, 0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            height: 100%;
         }
 
-        .featured-game::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0), rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3), rgba(255, 0, 255, 0));
-            z-index: -1;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .featured-game:hover::before {
-            opacity: 1;
-        }
-
-        .featured-game:hover {
+        .game-nav-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
             border-color: rgba(0, 255, 255, 0.4);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
         }
 
-        .featured-game img {
+        .game-nav-card.active {
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+            border-color: rgba(255, 0, 255, 0.6);
+        }
+
+        .game-nav-card img, .game-nav-card .game-thumb {
             width: 100%;
-            height: 160px;
+            height: 90px;
             object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 10px;
         }
 
-        .featured-game h3 {
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .featured-game p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+        .game-nav-card .game-title {
+            padding: 8px;
             text-align: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .game-layout {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .game-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 1024px) {
+            .game-layout {
+                flex-direction: row;
+                gap: 20px;
+            }
+            
+            .game-content {
+                flex: 1;
+            }
+            
+            .game-selector {
+                width: 200px;
+            }
         }
 
         /* Mobile optimizations */
         @media (max-width: 768px) {
-            .featured-games {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            }
-
-            .featured-game img {
-                height: 120px;
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
             
-            .game-nav {
-                justify-content: center;
+            .game-nav-card img, .game-nav-card .game-thumb {
+                height: 70px;
+            }
+            
+            .game-nav-card .game-title {
+                font-size: 12px;
+                padding: 6px;
+            }
+            
+            .game-selector-row {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE/Edge */
+                margin: 0 -15px;
+                padding: 10px 15px;
+            }
+            
+            .game-selector-row::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .game-selector-row .games-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 10px;
+                width: max-content;
+            }
+            
+            .game-selector-row .game-nav-card {
+                width: 120px;
+                flex-shrink: 0;
             }
         }
 
-        /* Game preview thumbnails */
+        /* Game thumbnails */
         .game-thumb {
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            border-radius: 8px;
+            border-radius: 4px 4px 0 0;
             overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid rgba(0, 255, 255, 0.2);
         }
 
         .game-thumb::after {
@@ -365,32 +354,32 @@
                 rgba(255, 0, 255, 0.1) 100%);
             pointer-events: none;
         }
-
-        /* Game thumbnails will be generated dynamically in JavaScript */
         
-        .play-button {
+        .play-indicator {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
             color: white;
-            border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
+            transition: opacity 0.3s;
             z-index: 2;
         }
-
-        .featured-game:hover .play-button {
+        
+        .game-nav-card:hover .play-indicator {
             opacity: 1;
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .game-nav-card.active .play-indicator {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.8), rgba(255, 0, 255, 0.8));
+            opacity: 1;
         }
         
         .section-heading {
@@ -453,6 +442,32 @@
             background: linear-gradient(90deg, #00ffff, #ff00ff);
             transition: all 0.3s ease;
         }
+        
+        /* 移动端菜单改进 */
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            z-index: 40;
+            transition: transform 0.3s ease;
+            transform: translateY(-100%);
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-menu a {
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body class="font-cyber text-gray-200 min-h-screen">
@@ -486,10 +501,10 @@
                 </svg>
             </button>
         </div>
-        <div class="mobile-menu hidden md:hidden">
-            <a href="#featured" class="block py-2 px-4 text-sm hover:bg-cyber-dark">PLAY GAMES</a>
-            <a href="#about" class="block py-2 px-4 text-sm hover:bg-cyber-dark">ABOUT</a>
-            <a href="#how-to-play" class="block py-2 px-4 text-sm hover:bg-cyber-dark">HOW TO PLAY</a>
+        <div class="mobile-menu md:hidden">
+            <a href="#featured" class="block py-3 px-4 text-sm hover:bg-cyber-dark">PLAY GAMES</a>
+            <a href="#about" class="block py-3 px-4 text-sm hover:bg-cyber-dark">ABOUT</a>
+            <a href="#how-to-play" class="block py-3 px-4 text-sm hover:bg-cyber-dark">HOW TO PLAY</a>
         </div>
     </header>
 
@@ -501,29 +516,35 @@
             <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-6 relative">
                 Experience the ultimate collection of free Tetris-style puzzle games that you can play directly in your browser. No downloads required!
             </p>
-            <a href="#featured" class="inline-block cyber-btn text-neon-blue hover:text-white transition-colors duration-300 py-3 px-6 rounded">
-                PLAY NOW
-            </a>
         </section>
 
         <section id="featured" class="mb-16">
-            <!-- Main Game Container -->
-            <div id="gameContainer" class="p-4">
-                <div class="game-nav" id="gameNav">
-                    <!-- Game navigation will be populated by JavaScript -->
+            <!-- 新的游戏布局 -->
+            <div class="game-layout">
+                <!-- 游戏内容区域 -->
+                <div class="game-content">
+                    <div id="gameContainer" class="p-4">
+                        <div class="game-frame-container" id="gameFrameContainer">
+                            <!-- Game iframes will be populated by JavaScript -->
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="game-frame-container" id="gameFrameContainer">
-                    <!-- Game iframes will be populated by JavaScript -->
+                <!-- 游戏选择器 - 桌面端侧边栏 -->
+                <div class="game-selector hidden lg:block">
+                    <h3 class="text-xl font-bold mb-4 text-neon-blue">游戏选择</h3>
+                    <div class="games-grid" id="gameNavSidebar">
+                        <!-- 游戏选择卡片将由JS生成 -->
+                    </div>
                 </div>
             </div>
-
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold inline-block section-heading text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink">Featured Games</h2>
-            </div>
             
-            <div class="featured-games" id="featuredGames">
-                <!-- Featured games will be populated by JavaScript -->
+            <!-- 游戏选择器 - 移动端底部行 -->
+            <div class="game-selector-row mt-4 lg:hidden">
+                <h3 class="text-xl font-bold mb-3 text-neon-blue">游戏选择</h3>
+                <div class="games-grid" id="gameNavBottom">
+                    <!-- 游戏选择卡片将由JS生成 -->
+                </div>
             </div>
         </section>
 
@@ -679,7 +700,7 @@
     </footer>
 
     <script>
-        // Games data - Add new games here
+        // 游戏数据
         const gamesData = [
             {
                 id: "game1",
@@ -708,44 +729,42 @@
                 url: "https://www.crazygames.com/embed/tetrix-2",
                 description: "The evolution of the classic with enhanced graphics and modern gameplay mechanics",
                 thumbnail: generateThumbnail("Tetrix 2", "#9900ff", "#ff00ff")
+            },
+            {
+                id: "game5",
+                name: "Blocks Fill Tangram",
+                url: "https://www.crazygames.com/embed/blocks-fill-tangram",
+                description: "Fill the shapes with blocks in this unique tangram-inspired puzzle game",
+                thumbnail: generateThumbnail("Blocks Fill Tangram", "#9900ff", "#ff00ff")
             }
-            // Add more games here following the same format
-            // Example:
-            // {
-            //     id: "game5",
-            //     name: "Your New Game Name",
-            //     url: "https://www.example.com/embed/your-game-url",
-            //     description: "Description of your new game",
-            //     thumbnail: generateThumbnail("Your New Game Name", "#color1", "#color2")
-            // },
         ];
 
-        // Function to generate SVG thumbnail for a game
+        // 生成游戏缩略图
         function generateThumbnail(gameName, color1, color2) {
-            // This creates a data URL for an SVG thumbnail with the game name and some blocks
-            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="%230a0a12"/><text x="150" y="75" font-family="Arial" font-size="18" fill="%2300ffff" text-anchor="middle">${gameName}</text><rect x="80" y="90" width="20" height="20" fill="${color1}"/><rect x="100" y="90" width="20" height="20" fill="${color1}"/><rect x="120" y="90" width="20" height="20" fill="${color2}"/><rect x="140" y="90" width="20" height="20" fill="${color2}"/></svg>`;
+            // 创建SVG缩略图的数据URL，包含游戏名称和一些方块
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="%230a0a12"/><text x="150" y="50" font-family="Arial" font-size="18" fill="%2300ffff" text-anchor="middle">${gameName}</text><rect x="70" y="70" width="20" height="20" fill="${color1}"/><rect x="90" y="70" width="20" height="20" fill="${color1}"/><rect x="110" y="70" width="20" height="20" fill="${color2}"/><rect x="110" y="90" width="20" height="20" fill="${color2}"/><rect x="130" y="70" width="20" height="20" rx="3" fill="${color1}"/><rect x="150" y="70" width="20" height="20" rx="3" fill="${color1}"/><rect x="170" y="70" width="20" height="20" rx="3" fill="${color2}"/><rect x="190" y="70" width="20" height="20" rx="3" fill="${color2}"/><rect x="190" y="90" width="20" height="20" rx="3" fill="${color1}"/></svg>`;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize the games
+            // 初始化游戏
             initializeGames();
             
-            // Mobile menu toggle
+            // 移动端菜单切换
             const menuButton = document.querySelector('.mobile-menu-button');
             const mobileMenu = document.querySelector('.mobile-menu');
             
             menuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('active');
             });
             
-            // Hide mobile menu when clicking a link
+            // 点击链接时隐藏移动端菜单
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('active');
                 });
             });
             
-            // Create floating particles
+            // 创建浮动粒子
             const particlesContainer = document.getElementById('particles-container');
             const particleColors = ['rgba(0, 255, 255, 0.3)', 'rgba(255, 0, 255, 0.3)', 'rgba(153, 0, 255, 0.3)'];
             
@@ -753,32 +772,25 @@
                 createParticle();
             }
             
-            // Responsive sizing for iframe container
+            // 响应式调整游戏容器大小
             adjustGameFrameContainer();
             window.addEventListener('resize', adjustGameFrameContainer);
         });
 
-        // Function to initialize all games
+        // 初始化所有游戏
         function initializeGames() {
-            // Clear existing content
-            const gameNav = document.getElementById('gameNav');
+            // 清除现有内容
             const gameFrameContainer = document.getElementById('gameFrameContainer');
-            const featuredGames = document.getElementById('featuredGames');
+            const gameNavSidebar = document.getElementById('gameNavSidebar');
+            const gameNavBottom = document.getElementById('gameNavBottom');
             
-            gameNav.innerHTML = '';
             gameFrameContainer.innerHTML = '';
-            featuredGames.innerHTML = '';
+            gameNavSidebar.innerHTML = '';
+            gameNavBottom.innerHTML = '';
             
-            // Generate game navigation items
+            // 生成游戏选择卡片和iframe
             gamesData.forEach((game, index) => {
-                // Create navigation item
-                const navItem = document.createElement('div');
-                navItem.className = 'game-nav-item' + (index === 0 ? ' active' : '');
-                navItem.dataset.game = game.id;
-                navItem.textContent = game.name;
-                gameNav.appendChild(navItem);
-                
-                // Create iframe
+                // 创建iframe
                 const iframe = document.createElement('iframe');
                 iframe.id = game.id;
                 iframe.src = game.url;
@@ -788,89 +800,83 @@
                 iframe.allowFullscreen = true;
                 gameFrameContainer.appendChild(iframe);
                 
-                // Create featured game card
-                const featuredGame = document.createElement('div');
-                featuredGame.className = 'featured-game';
-                featuredGame.dataset.game = game.id;
+                // 创建侧边栏游戏卡片
+                const sidebarCard = createGameCard(game, index === 0);
+                gameNavSidebar.appendChild(sidebarCard);
                 
-                // Game thumbnail
-                const thumbDiv = document.createElement('div');
-                thumbDiv.className = 'game-thumb w-full h-40 rounded-lg mb-3';
-                thumbDiv.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${game.thumbnail}')`;
-                
-                const playButton = document.createElement('div');
-                playButton.className = 'play-button';
-                playButton.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                `;
-                thumbDiv.appendChild(playButton);
-                
-                const title = document.createElement('h3');
-                title.className = 'text-xl font-bold';
-                title.textContent = game.name;
-                
-                const description = document.createElement('p');
-                description.textContent = game.description;
-                
-                featuredGame.appendChild(thumbDiv);
-                featuredGame.appendChild(title);
-                featuredGame.appendChild(description);
-                
-                featuredGames.appendChild(featuredGame);
-            });
-            
-            // Add event listeners to game nav items
-            document.querySelectorAll('.game-nav-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    switchGame(this.dataset.game);
-                });
-            });
-            
-            // Add event listeners to featured games
-            document.querySelectorAll('.featured-game').forEach(game => {
-                game.addEventListener('click', function() {
-                    switchGame(this.dataset.game);
-                });
+                // 创建底部游戏卡片
+                const bottomCard = createGameCard(game, index === 0);
+                gameNavBottom.appendChild(bottomCard);
             });
         }
 
-        // Function to switch between games
+        // 创建游戏卡片
+        function createGameCard(game, isActive) {
+            const card = document.createElement('div');
+            card.className = 'game-nav-card' + (isActive ? ' active' : '');
+            card.dataset.game = game.id;
+            
+            // 游戏缩略图
+            const thumbDiv = document.createElement('div');
+            thumbDiv.className = 'game-thumb';
+            thumbDiv.style.backgroundImage = `url('${game.thumbnail}')`;
+            
+            const playIndicator = document.createElement('div');
+            playIndicator.className = 'play-indicator';
+            playIndicator.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            `;
+            thumbDiv.appendChild(playIndicator);
+            
+            const title = document.createElement('div');
+            title.className = 'game-title';
+            title.textContent = game.name;
+            
+            card.appendChild(thumbDiv);
+            card.appendChild(title);
+            
+            // 添加点击事件
+            card.addEventListener('click', function() {
+                switchGame(game.id);
+            });
+            
+            return card;
+        }
+
+        // 切换游戏
         function switchGame(gameId) {
-            // Hide all games
+            // 隐藏所有游戏
             document.querySelectorAll('.game-frame').forEach(frame => {
                 frame.classList.remove('active');
             });
             
-            // Show selected game
+            // 显示选中的游戏
             document.getElementById(gameId).classList.add('active');
             
-            // Update nav items
-            document.querySelectorAll('.game-nav-item').forEach(item => {
-                if (item.dataset.game === gameId) {
-                    item.classList.add('active');
+            // 更新侧边栏和底部导航项
+            document.querySelectorAll('.game-nav-card').forEach(card => {
+                if (card.dataset.game === gameId) {
+                    card.classList.add('active');
                 } else {
-                    item.classList.remove('active');
+                    card.classList.remove('active');
                 }
             });
-
-            // Scroll to game container
-            document.getElementById('gameContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Create floating particle
+        // 创建浮动粒子
         function createParticle() {
             const particle = document.createElement('div');
             particle.className = 'floating-particle';
             
-            // Random position, size, and color
+            // 随机位置、大小和颜色
             const size = Math.random() * 4 + 1;
             const x = Math.random() * window.innerWidth;
             const y = Math.random() * window.innerHeight;
             const particleColors = ['rgba(0, 255, 255, 0.3)', 'rgba(255, 0, 255, 0.3)', 'rgba(153, 0, 255, 0.3)'];
             const color = particleColors[Math.floor(Math.random() * particleColors.length)];
-            const duration = Math.random() * 15 + 10; // 10-25 seconds
+            const duration = Math.random() * 15 + 10; // 10-25秒
             const delay = Math.random() * 10;
             
             particle.style.width = `${size}px`;
@@ -880,23 +886,23 @@
             particle.style.backgroundColor = color;
             particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
             
-            // Animation
+            // 动画
             particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
             
             document.getElementById('particles-container').appendChild(particle);
         }
 
-        // Adjust responsive sizing for iframe container
+        // 调整游戏容器大小
         function adjustGameFrameContainer() {
             const container = document.querySelector('.game-frame-container');
             const screenWidth = window.innerWidth;
             
-            // Adjust aspect ratio based on screen size
+            // 根据屏幕大小调整宽高比
             if (screenWidth < 768) {
-                // Mobile - use 4:3 ratio for better visibility
+                // 移动端 - 使用4:3比例以获得更好的可见性
                 container.style.paddingBottom = '75%';
             } else {
-                // Desktop - use 16:9 ratio
+                // 桌面端 - 使用16:9比例
                 container.style.paddingBottom = '56.25%';
             }
         }
