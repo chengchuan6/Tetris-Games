@@ -12,8 +12,8 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetris Games - Best Online Block Stacking Puzzle Experience</title>
-    <meta name="description" content="Play the classic Tetris Games online for free. Challenge yourself with our addictive block-stacking puzzle game that tests your reflexes and strategy.">
+    <title>Tetris Games Online - Play Classic & Modern Tetris Variations</title>
+    <meta name="description" content="Play the best free Tetris games online. Collection of classic and modern Tetris variations, block puzzles and more. No download required, play directly in browser!">
     <link rel="canonical" href="https://tetrisgames.online">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,254 +21,885 @@
             theme: {
                 extend: {
                     colors: {
-                        neonPink: '#ff00ff',
-                        neonBlue: '#00f0ff',
-                        neonPurple: '#9900ff',
-                        darkGray: '#0a0a0a',
-                        cyberBlack: '#0d0d0f',
+                        'neon-pink': '#ff00ff',
+                        'neon-blue': '#00ffff',
+                        'neon-purple': '#9900ff',
+                        'neon-green': '#00ff66',
+                        'neon-yellow': '#ffff00',
+                        'cyber-black': '#0a0a12',
+                        'cyber-dark': '#131326',
                     },
                     fontFamily: {
-                        cyber: ['Orbitron', 'sans-serif'],
+                        'cyber': ['Orbitron', 'sans-serif'],
                     },
-                    boxShadow: {
-                        neon: '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff',
-                        neonBlue: '0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 15px #00f0ff',
+                    animation: {
+                        'glow': 'glow 1.5s ease-in-out infinite alternate',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
                     },
-                },
-            },
+                    keyframes: {
+                        glow: {
+                            '0%': { 'text-shadow': '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff' },
+                            '100%': { 'text-shadow': '0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff' },
+                        },
+                        float: {
+                            '0%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                            '100%': { transform: 'translateY(0)' },
+                        }
+                    },
+                }
+            }
         }
     </script>
     <style type="text/css">
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
         
         body {
-            background-color: #0d0d0f;
-            background-image: 
-                linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: linear-gradient(135deg, #0a0a12 0%, #131326 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
         }
         
-        .neon-border {
-            border: 2px solid transparent;
-            border-image: linear-gradient(to right, #ff00ff, #00f0ff) 1;
-            animation: border-pulse 4s infinite;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(153, 0, 255, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: -1;
         }
         
-        .grid-bg {
-            background-image: linear-gradient(rgba(13, 13, 15, 0.8), rgba(13, 13, 15, 0.8)),
-                linear-gradient(to right, #ff00ff11 1px, transparent 1px),
-                linear-gradient(to bottom, #00f0ff11 1px, transparent 1px);
-            background-size: 100% 100%, 20px 20px, 20px 20px;
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
         }
         
-        @keyframes border-pulse {
-            0% { box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
-            50% { box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
-            100% { box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+        .game-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            background: rgba(19, 19, 38, 0.8);
+            backdrop-filter: blur(10px);
         }
         
-        @keyframes text-glow {
-            0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
-            50% { text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff; }
-            100% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+                        0 0 30px rgba(255, 0, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
         }
         
-        .text-glow {
-            animation: text-glow 4s infinite;
+        .cyber-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+        }
+
+        .cyber-line-vertical {
+            width: 1px;
+            background: linear-gradient(180deg, transparent, #00ffff, #ff00ff, transparent);
         }
         
-        .custom-bg-gradient {
-            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(0, 240, 255, 0.1) 100%);
+        .cyber-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            background: rgba(0, 255, 255, 0.05);
+        }
+        
+        .cyber-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .cyber-btn:hover:before {
+            left: 100%;
+        }
+        
+        .cyber-btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .cyber-btn:hover:after {
+            opacity: 1;
+        }
+        
+        .header-glow {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 
+                         0 0 20px rgba(0, 255, 255, 0.5),
+                         0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .game-frame-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+        }
+
+        .game-frame.active {
+            display: block;
+        }
+
+        .game-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .game-nav-item {
+            padding: 10px 15px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-nav-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .game-nav-item:hover:before {
+            left: 100%;
+        }
+
+        .game-nav-item:hover {
+            background: rgba(255, 0, 255, 0.2);
+            color: #ff00ff;
+            border-color: rgba(255, 0, 255, 0.3);
+        }
+
+        .game-nav-item.active {
+            background: linear-gradient(90deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        #gameContainer {
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            background: rgba(10, 10, 18, 0.7);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #gameContainer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+            z-index: 1;
+        }
+
+        #gameContainer::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.5), transparent);
+            z-index: 1;
+        }
+
+        .featured-games {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .featured-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(19, 19, 38, 0.6);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-game::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0), rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3), rgba(255, 0, 255, 0));
+            z-index: -1;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .featured-game:hover::before {
+            opacity: 1;
+        }
+
+        .featured-game:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .featured-game img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .featured-game h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .featured-game p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .featured-games {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .featured-game img {
+                height: 120px;
+            }
+            
+            .game-nav {
+                justify-content: center;
+            }
+        }
+
+        /* Game preview thumbnails */
+        .game-thumb {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .game-thumb::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.1) 0%, 
+                rgba(153, 0, 255, 0.05) 50%, 
+                rgba(255, 0, 255, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        /* Game thumbnails will be generated dynamically in JavaScript */
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 2;
+        }
+
+        .featured-game:hover .play-button {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+        }
+        
+        .section-heading::before,
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            width: 30px;
+        }
+        
+        .section-heading::before {
+            right: -40px;
+            background: linear-gradient(90deg, #00ffff, transparent);
+        }
+        
+        .section-heading::after {
+            left: -40px;
+            background: linear-gradient(90deg, transparent, #ff00ff);
+        }
+        
+        .glitch-effect {
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.75), -0.05em -0.025em 0 rgba(0, 255, 255, 0.75); }
+            14% { text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.75), -0.05em -0.025em 0 rgba(0, 255, 255, 0.75); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 255, 0.75), 0.025em 0.025em 0 rgba(0, 255, 255, 0.75); }
+            49% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 255, 0.75), 0.025em 0.025em 0 rgba(0, 255, 255, 0.75); }
+            50% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 255, 0.75), 0.05em 0 0 rgba(0, 255, 255, 0.75); }
+            99% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 255, 0.75), 0.05em 0 0 rgba(0, 255, 255, 0.75); }
+            100% { text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.75), -0.05em -0.025em 0 rgba(0, 255, 255, 0.75); }
+        }
+        
+        /* Floating particles */
+        .floating-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .menu-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="font-cyber text-white min-h-screen">
-    <header class="py-4 px-4 md:px-10 border-b border-neonPink/30">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <svg class="w-10 h-10 mr-3 text-neonPink" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M2 2h8v4h-8zM14 2h8v8h-8zM2 8h8v8h-8zM14 14h8v8h-8zM2 18h8v4h-8z"></path>
-                </svg>
-                <a href="/" class="text-2xl md:text-3xl font-bold tracking-wider text-white">
-                    <span class="text-neonPink">TETRIS</span>
-                    <span class="text-neonBlue">GAMES</span>
+<body class="font-cyber text-gray-200 min-h-screen">
+    <div class="grid-overlay"></div>
+
+    <!-- Floating particles -->
+    <div id="particles-container"></div>
+    
+    <header class="border-b border-neon-blue/20 bg-cyber-black/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center">
+                <span class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink animate-glow">TETRIS<span class="text-white">GAMES</span></span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm relative">
+                <a href="#featured" class="text-neon-blue hover:text-neon-pink transition duration-300 py-2 relative group">
+                    PLAY GAMES
+                    <span class="menu-indicator group-hover:w-full"></span>
                 </a>
-            </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="#" class="hover:text-neonPink transition-colors duration-300">Home</a></li>
-                    <li><a href="#how-to-play" class="hover:text-neonPink transition-colors duration-300">How To Play</a></li>
-                    <li><a href="#game-features" class="hover:text-neonPink transition-colors duration-300">Features</a></li>
-                </ul>
+                <a href="#about" class="text-gray-300 hover:text-neon-pink transition duration-300 py-2 relative group">
+                    ABOUT
+                    <span class="menu-indicator group-hover:w-full"></span>
+                </a>
+                <a href="#how-to-play" class="text-gray-300 hover:text-neon-pink transition duration-300 py-2 relative group">
+                    HOW TO PLAY
+                    <span class="menu-indicator group-hover:w-full"></span>
+                </a>
             </nav>
+            <button class="md:hidden text-white mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu hidden md:hidden">
+            <a href="#featured" class="block py-2 px-4 text-sm hover:bg-cyber-dark">PLAY GAMES</a>
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-cyber-dark">ABOUT</a>
+            <a href="#how-to-play" class="block py-2 px-4 text-sm hover:bg-cyber-dark">HOW TO PLAY</a>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 md:px-10 py-8">
-        <!-- Hero Section with H1 -->
-        <section class="text-center mb-12">
-            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-wider text-glow">
-                <span class="text-neonPink">TETRIS</span> 
-                <span class="text-neonBlue">GAMES</span>
+    <main class="container mx-auto px-4 py-8 md:py-12">
+        <section class="mb-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white header-glow leading-tight glitch-effect">
+                Best Online <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink">Tetris Games</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300">
-                Master the art of block stacking in this addictive puzzle challenge that tests your speed and strategy.
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-6 relative">
+                Experience the ultimate collection of free Tetris-style puzzle games that you can play directly in your browser. No downloads required!
             </p>
-            <div class="grid-bg neon-border p-3 md:p-4 rounded-lg max-w-5xl mx-auto">
-                <div class="relative pb-[56.25%] h-0 overflow-hidden rounded">
-                    <iframe src="https://www.crazygames.com/embed/drop-merge-the-numbers" 
-                            class="absolute top-0 left-0 w-full h-full border-0"
-                            allow="gamepad *; fullscreen *; autoplay"
-                            allowfullscreen></iframe>
+            <a href="#featured" class="inline-block cyber-btn text-neon-blue hover:text-white transition-colors duration-300 py-3 px-6 rounded">
+                PLAY NOW
+            </a>
+        </section>
+
+        <section id="featured" class="mb-16">
+            <!-- Main Game Container -->
+            <div id="gameContainer" class="p-4">
+                <div class="game-nav" id="gameNav">
+                    <!-- Game navigation will be populated by JavaScript -->
+                </div>
+                
+                <div class="game-frame-container" id="gameFrameContainer">
+                    <!-- Game iframes will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold inline-block section-heading text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink">Featured Games</h2>
+            </div>
+            
+            <div class="featured-games" id="featuredGames">
+                <!-- Featured games will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <div class="cyber-line my-12"></div>
+
+        <section id="about" class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold inline-block section-heading text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink">About Tetris Games</h2>
+            </div>
+            
+            <div class="bg-cyber-dark/50 backdrop-blur-md p-6 rounded-lg border border-neon-blue/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-neon-purple/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-40 h-40 bg-neon-blue/5 rounded-full blur-3xl"></div>
+                
+                <div class="grid md:grid-cols-2 gap-8 relative">
+                    <div class="relative">
+                        <h3 class="text-xl font-bold mb-4 text-white">The Legacy of Tetris</h3>
+                        <p class="text-gray-300 mb-4">
+                            Tetris, created by Alexey Pajitnov in 1984, revolutionized the gaming world with its simple yet addictive gameplay. The concept of arranging falling tetrominoes (geometric shapes made up of four squares) to create complete lines has become one of the most recognized game mechanics globally.
+                        </p>
+                        <p class="text-gray-300">
+                            Today, this classic puzzle game continues to evolve with new variations, mechanics, and visual styles. Our collection brings together the best modern interpretations of this timeless concept, from classic experiences to innovative new takes.
+                        </p>
+                    </div>
+                    
+                    <div class="relative">
+                        <h3 class="text-xl font-bold mb-4 text-white">Why Play Tetris Games?</h3>
+                        <ul class="text-gray-300 space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-neon-blue mr-2">▶</span>
+                                <span>Improves cognitive abilities and problem-solving skills</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-pink mr-2">▶</span>
+                                <span>Enhances spatial awareness and quick decision making</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-purple mr-2">▶</span>
+                                <span>Provides a satisfying gaming experience with clear goals</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-green mr-2">▶</span>
+                                <span>Accessible to players of all ages and skill levels</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-2">▶</span>
+                                <span>Perfect for quick gaming sessions to relax or challenge yourself</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- How to Play Section -->
-        <section id="how-to-play" class="my-16 custom-bg-gradient p-6 rounded-lg neon-border">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-neonBlue tracking-wide">
-                HOW TO PLAY TETRIS
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <p class="mb-4">
-                        Tetris is the ultimate block-stacking puzzle game that challenges your reflexes and strategic thinking. 
-                        The goal is simple: arrange falling tetrominoes (geometric shapes composed of four square blocks) to create 
-                        complete horizontal lines, which then disappear from the playfield.
-                    </p>
-                    <p>
-                        As you progress, the blocks fall faster, increasing the difficulty and excitement. 
-                        The game ends when the stack of blocks reaches the top of the playing field and no new tetrominoes can enter.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-3 text-neonPink">Controls:</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">←/→</span>
-                            <span>Move blocks left/right</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">↓</span>
-                            <span>Soft drop (accelerate)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">↑</span>
-                            <span>Rotate block</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="bg-neonPink/20 px-2 py-1 rounded mr-2 border border-neonPink/40">SPACE</span>
-                            <span>Hard drop (instant placement)</span>
-                        </li>
-                    </ul>
-                </div>
+        <section id="how-to-play" class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold inline-block section-heading text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink">How to Play</h2>
             </div>
-        </section>
-
-        <!-- Game Features Section -->
-        <section id="game-features" class="my-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-neonBlue tracking-wide">
-                GAME FEATURES
-            </h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-cyberBlack p-6 rounded-lg border border-neonPink/30 hover:border-neonPink/70 transition-colors duration-300">
-                    <div class="text-neonPink text-4xl mb-4">01</div>
-                    <h3 class="text-xl font-semibold mb-2">Classic Gameplay</h3>
-                    <p class="text-gray-400">
-                        Experience the traditional Tetris gameplay that has captivated millions of players worldwide since 1984.
-                    </p>
-                </div>
-                <div class="bg-cyberBlack p-6 rounded-lg border border-neonBlue/30 hover:border-neonBlue/70 transition-colors duration-300">
-                    <div class="text-neonBlue text-4xl mb-4">02</div>
-                    <h3 class="text-xl font-semibold mb-2">Increasing Difficulty</h3>
-                    <p class="text-gray-400">
-                        Face progressively faster falling blocks as you advance, testing your reflexes and decision-making skills.
-                    </p>
-                </div>
-                <div class="bg-cyberBlack p-6 rounded-lg border border-neonPurple/30 hover:border-neonPurple/70 transition-colors duration-300">
-                    <div class="text-neonPurple text-4xl mb-4">03</div>
-                    <h3 class="text-xl font-semibold mb-2">Scoring System</h3>
-                    <p class="text-gray-400">
-                        Earn higher points by clearing multiple lines simultaneously, with special bonuses for Tetris (4 lines at once).
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Game History Section -->
-        <section class="my-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-neonBlue tracking-wide">
-                THE LEGACY OF TETRIS
-            </h2>
-            <div class="grid-bg p-6 rounded-lg">
-                <p class="mb-4">
-                    Created by Russian software engineer Alexey Pajitnov in 1984, Tetris has become one of the most recognized 
-                    and influential video games of all time. Its simple yet addictive gameplay has transcended generations and platforms, 
-                    from its original implementation on the Electronika 60 to modern consoles, computers, and mobile devices.
-                </p>
-                <p class="mb-4">
-                    The name "Tetris" comes from the Greek prefix "tetra-" (meaning "four") and the creator's favorite sport, tennis. 
-                    Each piece in the game, known as a tetromino, consists of four squares arranged in different configurations.
-                </p>
-                <p>
-                    Tetris is not just entertaining but has been studied for its cognitive benefits, including improved spatial reasoning, 
-                    decision-making skills, and even potential therapeutic applications for traumatic memories and PTSD.
-                </p>
-            </div>
-        </section>
-
-        <!-- Tips and Strategies Section -->
-        <section class="my-16">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-neonBlue tracking-wide">
-                STRATEGIES FOR SUCCESS
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-cyberBlack p-6 rounded-lg border-l-4 border-neonPink">
-                    <h3 class="text-xl font-semibold mb-3 text-neonPink">Beginner Tips</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>• Always try to build a flat surface for future pieces</li>
-                        <li>• Leave space for the I-piece (the long straight tetromino) to clear four lines at once</li>
-                        <li>• Don't rush your decisions, especially at lower levels</li>
-                        <li>• Learn to recognize piece patterns as they appear</li>
-                        <li>• Practice using the preview window to plan your next move</li>
-                    </ul>
-                </div>
-                <div class="bg-cyberBlack p-6 rounded-lg border-l-4 border-neonBlue">
-                    <h3 class="text-xl font-semibold mb-3 text-neonBlue">Advanced Techniques</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>• Master T-spins for bonus points and efficient clearing</li>
-                        <li>• Practice efficient piece stacking using the "7-bag" randomizer system</li>
-                        <li>• Learn wall kicks and rotation systems to place pieces in tight spots</li>
-                        <li>• Keep a "well" on the side for the I-piece to maximize Tetris clears</li>
-                        <li>• Develop muscle memory for quick decision-making at higher speeds</li>
-                    </ul>
+            
+            <div class="bg-cyber-dark/50 backdrop-blur-md p-6 rounded-lg border border-neon-blue/20 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-40 h-40 bg-neon-pink/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-40 h-40 bg-neon-blue/5 rounded-full blur-3xl"></div>
+                
+                <div class="grid md:grid-cols-2 gap-8 relative">
+                    <div class="relative">
+                        <h3 class="text-xl font-bold mb-4 text-white">Basic Controls</h3>
+                        <ul class="text-gray-300 space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span><strong class="text-neon-blue">Left/Right Arrows:</strong> Move the falling piece horizontally</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span><strong class="text-neon-blue">Down Arrow:</strong> Accelerate the piece's descent</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span><strong class="text-neon-blue">Up Arrow:</strong> Rotate the piece clockwise</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span><strong class="text-neon-blue">Space:</strong> Hard drop (instantly places the piece at the bottom)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="relative">
+                        <h3 class="text-xl font-bold mb-4 text-white">Tetris Strategy Tips</h3>
+                        <ul class="text-gray-300 space-y-3">
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span>Always leave space for the I-piece (the long straight tetromino) to clear four lines at once</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span>Try to keep the stack as flat as possible to give yourself more options</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span>Learn to use the "wall kick" technique to rotate pieces in tight spots</span>
+                            </li>
+                            <li class="flex items-start group">
+                                <span class="text-neon-pink mr-2 group-hover:animate-pulse">►</span>
+                                <span>Play at a comfortable speed - accuracy is often more important than speed</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-neonPink/30 py-8 mt-16">
-        <div class="container mx-auto px-4 md:px-10">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center">
-                        <svg class="w-8 h-8 mr-2 text-neonPink" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M2 2h8v4h-8zM14 2h8v8h-8zM2 8h8v8h-8zM14 14h8v8h-8zM2 18h8v4h-8z"></path>
-                        </svg>
-                        <span class="text-xl font-bold">
-                            <span class="text-neonPink">TETRIS</span>
-                            <span class="text-neonBlue">GAMES</span>
-                        </span>
-                    </div>
-                    <p class="text-gray-400 mt-2">© 2025 Tetris Games. All rights reserved.</p>
+    <footer class="bg-cyber-black border-t border-neon-blue/20 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-blue to-transparent opacity-30"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-white">TETRIS<span class="text-neon-blue">GAMES</span></h3>
+                    <p class="text-gray-400 text-sm">The ultimate destination for Tetris and block puzzle enthusiasts. Play free Tetris-inspired games directly in your browser.</p>
                 </div>
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
-                    <a href="#" class="hover:text-neonPink transition-colors duration-300">Privacy Policy</a>
-                    <a href="#" class="hover:text-neonPink transition-colors duration-300">Terms of Service</a>
-                    <a href="#" class="hover:text-neonPink transition-colors duration-300">Contact Us</a>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#featured" class="text-gray-400 hover:text-neon-blue transition duration-300">Play Games</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-neon-blue transition duration-300">About</a></li>
+                        <li><a href="#how-to-play" class="text-gray-400 hover:text-neon-blue transition duration-300">How to Play</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Connect</h4>
+                    <p class="text-gray-400 text-sm mb-4">Stay updated with the latest games and features.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon-pink transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-pink transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-pink transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="cyber-line my-6"></div>
+            <p class="text-center text-gray-500 text-sm">
+                © 2025 TetrisGames.online. All games are property of their respective owners.
+            </p>
         </div>
     </footer>
+
+    <script>
+        // Games data - Add new games here
+        const gamesData = [
+            {
+                id: "game1",
+                name: "Drop Merge: The Numbers",
+                url: "https://www.crazygames.com/embed/drop-merge-the-numbers",
+                description: "Combine Tetris mechanics with number merging for a fresh puzzle experience",
+                thumbnail: generateThumbnail("Drop Merge: The Numbers", "#ff00ff", "#00ffff")
+            },
+            {
+                id: "game2",
+                name: "Block Puzzle Master",
+                url: "https://www.crazygames.com/embed/block-puzzle-master",
+                description: "Test your spatial skills with this addictive block puzzle game",
+                thumbnail: generateThumbnail("Block Puzzle Master", "#9900ff", "#ff00ff")
+            },
+            {
+                id: "game3",
+                name: "Blockbuster Puzzle",
+                url: "https://www.crazygames.com/embed/blockbuster-puzzle",
+                description: "Clear the grid by creating complete lines in this modern block dropping game",
+                thumbnail: generateThumbnail("Blockbuster Puzzle", "#00ffff", "#ff00ff")
+            },
+            {
+                id: "game4",
+                name: "Tetrix 2",
+                url: "https://www.crazygames.com/embed/tetrix-2",
+                description: "The evolution of the classic with enhanced graphics and modern gameplay mechanics",
+                thumbnail: generateThumbnail("Tetrix 2", "#9900ff", "#ff00ff")
+            }
+            // Add more games here following the same format
+            // Example:
+            // {
+            //     id: "game5",
+            //     name: "Your New Game Name",
+            //     url: "https://www.example.com/embed/your-game-url",
+            //     description: "Description of your new game",
+            //     thumbnail: generateThumbnail("Your New Game Name", "#color1", "#color2")
+            // },
+        ];
+
+        // Function to generate SVG thumbnail for a game
+        function generateThumbnail(gameName, color1, color2) {
+            // This creates a data URL for an SVG thumbnail with the game name and some blocks
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="%230a0a12"/><text x="150" y="75" font-family="Arial" font-size="18" fill="%2300ffff" text-anchor="middle">${gameName}</text><rect x="80" y="90" width="20" height="20" fill="${color1}"/><rect x="100" y="90" width="20" height="20" fill="${color1}"/><rect x="120" y="90" width="20" height="20" fill="${color2}"/><rect x="140" y="90" width="20" height="20" fill="${color2}"/></svg>`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the games
+            initializeGames();
+            
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Hide mobile menu when clicking a link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Create floating particles
+            const particlesContainer = document.getElementById('particles-container');
+            const particleColors = ['rgba(0, 255, 255, 0.3)', 'rgba(255, 0, 255, 0.3)', 'rgba(153, 0, 255, 0.3)'];
+            
+            for (let i = 0; i < 20; i++) {
+                createParticle();
+            }
+            
+            // Responsive sizing for iframe container
+            adjustGameFrameContainer();
+            window.addEventListener('resize', adjustGameFrameContainer);
+        });
+
+        // Function to initialize all games
+        function initializeGames() {
+            // Clear existing content
+            const gameNav = document.getElementById('gameNav');
+            const gameFrameContainer = document.getElementById('gameFrameContainer');
+            const featuredGames = document.getElementById('featuredGames');
+            
+            gameNav.innerHTML = '';
+            gameFrameContainer.innerHTML = '';
+            featuredGames.innerHTML = '';
+            
+            // Generate game navigation items
+            gamesData.forEach((game, index) => {
+                // Create navigation item
+                const navItem = document.createElement('div');
+                navItem.className = 'game-nav-item' + (index === 0 ? ' active' : '');
+                navItem.dataset.game = game.id;
+                navItem.textContent = game.name;
+                gameNav.appendChild(navItem);
+                
+                // Create iframe
+                const iframe = document.createElement('iframe');
+                iframe.id = game.id;
+                iframe.src = game.url;
+                iframe.className = 'game-frame' + (index === 0 ? ' active' : '');
+                iframe.frameBorder = "0";
+                iframe.allow = "fullscreen";
+                iframe.allowFullscreen = true;
+                gameFrameContainer.appendChild(iframe);
+                
+                // Create featured game card
+                const featuredGame = document.createElement('div');
+                featuredGame.className = 'featured-game';
+                featuredGame.dataset.game = game.id;
+                
+                // Game thumbnail
+                const thumbDiv = document.createElement('div');
+                thumbDiv.className = 'game-thumb w-full h-40 rounded-lg mb-3';
+                thumbDiv.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${game.thumbnail}')`;
+                
+                const playButton = document.createElement('div');
+                playButton.className = 'play-button';
+                playButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                `;
+                thumbDiv.appendChild(playButton);
+                
+                const title = document.createElement('h3');
+                title.className = 'text-xl font-bold';
+                title.textContent = game.name;
+                
+                const description = document.createElement('p');
+                description.textContent = game.description;
+                
+                featuredGame.appendChild(thumbDiv);
+                featuredGame.appendChild(title);
+                featuredGame.appendChild(description);
+                
+                featuredGames.appendChild(featuredGame);
+            });
+            
+            // Add event listeners to game nav items
+            document.querySelectorAll('.game-nav-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    switchGame(this.dataset.game);
+                });
+            });
+            
+            // Add event listeners to featured games
+            document.querySelectorAll('.featured-game').forEach(game => {
+                game.addEventListener('click', function() {
+                    switchGame(this.dataset.game);
+                });
+            });
+        }
+
+        // Function to switch between games
+        function switchGame(gameId) {
+            // Hide all games
+            document.querySelectorAll('.game-frame').forEach(frame => {
+                frame.classList.remove('active');
+            });
+            
+            // Show selected game
+            document.getElementById(gameId).classList.add('active');
+            
+            // Update nav items
+            document.querySelectorAll('.game-nav-item').forEach(item => {
+                if (item.dataset.game === gameId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Scroll to game container
+            document.getElementById('gameContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Create floating particle
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            
+            // Random position, size, and color
+            const size = Math.random() * 4 + 1;
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            const particleColors = ['rgba(0, 255, 255, 0.3)', 'rgba(255, 0, 255, 0.3)', 'rgba(153, 0, 255, 0.3)'];
+            const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+            const duration = Math.random() * 15 + 10; // 10-25 seconds
+            const delay = Math.random() * 10;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.backgroundColor = color;
+            particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+            
+            // Animation
+            particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+            
+            document.getElementById('particles-container').appendChild(particle);
+        }
+
+        // Adjust responsive sizing for iframe container
+        function adjustGameFrameContainer() {
+            const container = document.querySelector('.game-frame-container');
+            const screenWidth = window.innerWidth;
+            
+            // Adjust aspect ratio based on screen size
+            if (screenWidth < 768) {
+                // Mobile - use 4:3 ratio for better visibility
+                container.style.paddingBottom = '75%';
+            } else {
+                // Desktop - use 16:9 ratio
+                container.style.paddingBottom = '56.25%';
+            }
+        }
+    </script>
 </body>
 </html>
