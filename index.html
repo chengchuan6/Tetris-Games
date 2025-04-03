@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,10 +247,30 @@
             border-color: rgba(255, 0, 255, 0.6);
         }
 
-        .game-nav-card img, .game-nav-card .game-thumb {
+        .game-nav-card img {
             width: 100%;
             height: 90px;
             object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .game-nav-card .game-thumb {
+            position: relative;
+            width: 100%;
+            height: 90px;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .game-nav-card .game-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-nav-card:hover .game-thumb img {
+            transform: scale(1.1);
         }
 
         .game-nav-card .game-title {
@@ -263,71 +282,79 @@
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
         }
 
         .game-layout {
             display: flex;
             flex-direction: column;
+            gap: 20px;
+            max-width: 1440px;
+            margin: 0 auto;
         }
         
         .game-content {
-            display: flex;
-            flex-direction: column;
+            width: 100%;
         }
 
+        #gameContainer {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-selector {
+            width: 100%;
+        }
+
+        /* PC Layout Optimization */
         @media (min-width: 1024px) {
             .game-layout {
                 flex-direction: row;
+                align-items: flex-start;
                 gap: 20px;
             }
-            
+
             .game-content {
                 flex: 1;
+                max-width: 75%;
             }
-            
+
             .game-selector {
-                width: 200px;
+                width: 25%;
+                min-width: 300px;
+                position: sticky;
+                top: 80px;
+                padding-top: 0;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .game-nav-card .game-thumb {
+                height: 100px;
             }
         }
 
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
+        /* Tablet Layout */
+        @media (min-width: 768px) and (max-width: 1023px) {
             .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(4, 1fr);
             }
-            
-            .game-nav-card img, .game-nav-card .game-thumb {
-                height: 70px;
-            }
-            
-            .game-nav-card .game-title {
-                font-size: 12px;
-                padding: 6px;
-            }
-            
-            .game-selector-row {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none; /* IE/Edge */
-                margin: 0 -15px;
-                padding: 10px 15px;
-            }
-            
-            .game-selector-row::-webkit-scrollbar {
-                display: none;
-            }
-            
-            .game-selector-row .games-grid {
-                display: flex;
-                flex-wrap: nowrap;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 767px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
-                width: max-content;
+                padding: 10px;
             }
-            
-            .game-selector-row .game-nav-card {
-                width: 120px;
-                flex-shrink: 0;
+
+            .game-nav-card .game-thumb {
+                height: 80px;
             }
         }
 
@@ -532,7 +559,6 @@
                 
                 <!-- 游戏选择器 - 桌面端侧边栏 -->
                 <div class="game-selector hidden lg:block">
-                    <h3 class="text-xl font-bold mb-4 text-neon-blue">游戏选择</h3>
                     <div class="games-grid" id="gameNavSidebar">
                         <!-- 游戏选择卡片将由JS生成 -->
                     </div>
@@ -541,7 +567,6 @@
             
             <!-- 游戏选择器 - 移动端底部行 -->
             <div class="game-selector-row mt-4 lg:hidden">
-                <h3 class="text-xl font-bold mb-3 text-neon-blue">游戏选择</h3>
                 <div class="games-grid" id="gameNavBottom">
                     <!-- 游戏选择卡片将由JS生成 -->
                 </div>
@@ -687,7 +712,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-neon-pink transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -700,54 +725,170 @@
     </footer>
 
     <script>
-        // 游戏数据
-        const gamesData = [
-            {
-                id: "game1",
-                name: "Drop Merge: The Numbers",
-                url: "https://www.crazygames.com/embed/drop-merge-the-numbers",
-                description: "Combine Tetris mechanics with number merging for a fresh puzzle experience",
-                thumbnail: generateThumbnail("Drop Merge: The Numbers", "#ff00ff", "#00ffff")
-            },
-            {
-                id: "game2",
-                name: "Block Puzzle Master",
-                url: "https://www.crazygames.com/embed/block-puzzle-master",
-                description: "Test your spatial skills with this addictive block puzzle game",
-                thumbnail: generateThumbnail("Block Puzzle Master", "#9900ff", "#ff00ff")
-            },
-            {
-                id: "game3",
-                name: "Blockbuster Puzzle",
-                url: "https://www.crazygames.com/embed/blockbuster-puzzle",
-                description: "Clear the grid by creating complete lines in this modern block dropping game",
-                thumbnail: generateThumbnail("Blockbuster Puzzle", "#00ffff", "#ff00ff")
-            },
-            {
-                id: "game4",
-                name: "Tetrix 2",
-                url: "https://www.crazygames.com/embed/tetrix-2",
-                description: "The evolution of the classic with enhanced graphics and modern gameplay mechanics",
-                thumbnail: generateThumbnail("Tetrix 2", "#9900ff", "#ff00ff")
-            },
-            {
-                id: "game5",
-                name: "Blocks Fill Tangram",
-                url: "https://www.crazygames.com/embed/blocks-fill-tangram",
-                description: "Fill the shapes with blocks in this unique tangram-inspired puzzle game",
-                thumbnail: generateThumbnail("Blocks Fill Tangram", "#9900ff", "#ff00ff")
-            }
-        ];
+        // 游戏信息获取工具类
+        class GameFetcher {
+            // CrazyGames API 基础URL
+            static CRAZYGAMES_API = 'https://www.crazygames.com/api/game';
 
-        // 生成游戏缩略图
-        function generateThumbnail(gameName, color1, color2) {
-            // 创建SVG缩略图的数据URL，包含游戏名称和一些方块
-            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150"><rect width="300" height="150" fill="%230a0a12"/><text x="150" y="50" font-family="Arial" font-size="18" fill="%2300ffff" text-anchor="middle">${gameName}</text><rect x="70" y="70" width="20" height="20" fill="${color1}"/><rect x="90" y="70" width="20" height="20" fill="${color1}"/><rect x="110" y="70" width="20" height="20" fill="${color2}"/><rect x="110" y="90" width="20" height="20" fill="${color2}"/><rect x="130" y="70" width="20" height="20" rx="3" fill="${color1}"/><rect x="150" y="70" width="20" height="20" rx="3" fill="${color1}"/><rect x="170" y="70" width="20" height="20" rx="3" fill="${color2}"/><rect x="190" y="70" width="20" height="20" rx="3" fill="${color2}"/><rect x="190" y="90" width="20" height="20" rx="3" fill="${color1}"/></svg>`;
+            static extractGameId(url) {
+                const matches = url.match(/embed\/([\w-]+)/);
+                return matches ? matches[1] : '';
+            }
+
+            static generateThumbnailUrl(gameId) {
+                return `https://images.crazygames.com/games/${gameId}/cover-1686230773755.png?auto=format%2Ccompress&q=75&cs=strip&ch=DPR&w=178`;
+            }
+
+            static generateGameInfo(url, index) {
+                const gameId = this.extractGameId(url);
+                const defaultInfo = {
+                    id: `game${index + 1}`,
+                    name: this.formatGameName(gameId),
+                    url: url,
+                    description: this.generateDescription(gameId),
+                    thumbnail: this.generateThumbnailUrl(gameId)
+                };
+                return defaultInfo;
+            }
+
+            static formatGameName(gameId) {
+                return gameId
+                    .split('-')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+            }
+
+            static generateDescription(gameId) {
+                const gameName = this.formatGameName(gameId);
+                const descriptions = [
+                    `Experience the exciting gameplay of ${gameName}`,
+                    `Challenge yourself with ${gameName}`,
+                    `Enjoy the addictive puzzle action in ${gameName}`,
+                    `Test your skills in this amazing ${gameName} game`,
+                    `Discover the unique mechanics of ${gameName}`
+                ];
+                return descriptions[Math.floor(Math.random() * descriptions.length)];
+            }
         }
 
+        // 游戏管理类
+        class GameManager {
+            constructor() {
+                this.gameFrameContainer = document.getElementById('gameFrameContainer');
+                this.gameNavSidebar = document.getElementById('gameNavSidebar');
+                this.gameNavBottom = document.getElementById('gameNavBottom');
+            }
+
+            initializeGames() {
+                this.clearContainers();
+                this.createGamesContent();
+            }
+
+            clearContainers() {
+                this.gameFrameContainer.innerHTML = '';
+                this.gameNavSidebar.innerHTML = '';
+                this.gameNavBottom.innerHTML = '';
+            }
+
+            createGamesContent() {
+                gamesData.forEach((game, index) => {
+                    this.createGameFrame(game, index);
+                    this.createGameCards(game, index);
+                });
+            }
+
+            createGameFrame(game, index) {
+                const iframe = document.createElement('iframe');
+                iframe.id = game.id;
+                iframe.src = game.url;
+                iframe.className = 'game-frame' + (index === 0 ? ' active' : '');
+                iframe.frameBorder = "0";
+                iframe.allow = "fullscreen";
+                iframe.allowFullscreen = true;
+                this.gameFrameContainer.appendChild(iframe);
+            }
+
+            createGameCards(game, index) {
+                const sidebarCard = this.createGameCard(game, index === 0);
+                const bottomCard = this.createGameCard(game, index === 0);
+                
+                this.gameNavSidebar.appendChild(sidebarCard);
+                this.gameNavBottom.appendChild(bottomCard);
+            }
+
+            createGameCard(game, isActive) {
+                const card = document.createElement('div');
+                card.className = 'game-nav-card' + (isActive ? ' active' : '');
+                card.dataset.game = game.id;
+                
+                const thumbDiv = document.createElement('div');
+                thumbDiv.className = 'game-thumb';
+                
+                const img = document.createElement('img');
+                img.src = game.thumbnail;
+                img.alt = game.name;
+                img.loading = 'lazy';
+                thumbDiv.appendChild(img);
+                
+                const playIndicator = document.createElement('div');
+                playIndicator.className = 'play-indicator';
+                playIndicator.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                `;
+                thumbDiv.appendChild(playIndicator);
+                
+                const title = document.createElement('div');
+                title.className = 'game-title';
+                title.textContent = game.name;
+                
+                card.appendChild(thumbDiv);
+                card.appendChild(title);
+                
+                card.addEventListener('click', () => this.switchGame(game.id));
+                
+                return card;
+            }
+
+            switchGame(gameId) {
+                document.querySelectorAll('.game-frame').forEach(frame => {
+                    frame.classList.remove('active');
+                });
+                
+                document.getElementById(gameId).classList.add('active');
+                
+                document.querySelectorAll('.game-nav-card').forEach(card => {
+                    if (card.dataset.game === gameId) {
+                        card.classList.add('active');
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // 游戏URL列表 - 只需在这里添加新游戏的URL即可
+        const gameUrls = [
+            "https://www.crazygames.com/embed/drop-merge-the-numbers",
+            "https://www.crazygames.com/embed/block-puzzle-master",
+            "https://www.crazygames.com/embed/blockbuster-puzzle",
+            "https://www.crazygames.com/embed/tetrix-2",
+            "https://www.crazygames.com/embed/blocks-fill-tangram",
+            "https://www.crazygames.com/embed/tentrix",
+            "https://www.crazygames.com/embed/wood-blocks",
+            "https://www.crazygames.com/embed/puzzle-wood-block"
+        ];
+
+        // 生成游戏数据
+        const gamesData = gameUrls.map((url, index) => GameFetcher.generateGameInfo(url, index));
+
+        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            // 初始化游戏
-            initializeGames();
+            // 初始化游戏管理器
+            const gameManager = new GameManager();
+            gameManager.initializeGames();
             
             // 移动端菜单切换
             const menuButton = document.querySelector('.mobile-menu-button');
@@ -765,9 +906,6 @@
             });
             
             // 创建浮动粒子
-            const particlesContainer = document.getElementById('particles-container');
-            const particleColors = ['rgba(0, 255, 255, 0.3)', 'rgba(255, 0, 255, 0.3)', 'rgba(153, 0, 255, 0.3)'];
-            
             for (let i = 0; i < 20; i++) {
                 createParticle();
             }
@@ -777,106 +915,17 @@
             window.addEventListener('resize', adjustGameFrameContainer);
         });
 
-        // 初始化所有游戏
-        function initializeGames() {
-            // 清除现有内容
-            const gameFrameContainer = document.getElementById('gameFrameContainer');
-            const gameNavSidebar = document.getElementById('gameNavSidebar');
-            const gameNavBottom = document.getElementById('gameNavBottom');
-            
-            gameFrameContainer.innerHTML = '';
-            gameNavSidebar.innerHTML = '';
-            gameNavBottom.innerHTML = '';
-            
-            // 生成游戏选择卡片和iframe
-            gamesData.forEach((game, index) => {
-                // 创建iframe
-                const iframe = document.createElement('iframe');
-                iframe.id = game.id;
-                iframe.src = game.url;
-                iframe.className = 'game-frame' + (index === 0 ? ' active' : '');
-                iframe.frameBorder = "0";
-                iframe.allow = "fullscreen";
-                iframe.allowFullscreen = true;
-                gameFrameContainer.appendChild(iframe);
-                
-                // 创建侧边栏游戏卡片
-                const sidebarCard = createGameCard(game, index === 0);
-                gameNavSidebar.appendChild(sidebarCard);
-                
-                // 创建底部游戏卡片
-                const bottomCard = createGameCard(game, index === 0);
-                gameNavBottom.appendChild(bottomCard);
-            });
-        }
-
-        // 创建游戏卡片
-        function createGameCard(game, isActive) {
-            const card = document.createElement('div');
-            card.className = 'game-nav-card' + (isActive ? ' active' : '');
-            card.dataset.game = game.id;
-            
-            // 游戏缩略图
-            const thumbDiv = document.createElement('div');
-            thumbDiv.className = 'game-thumb';
-            thumbDiv.style.backgroundImage = `url('${game.thumbnail}')`;
-            
-            const playIndicator = document.createElement('div');
-            playIndicator.className = 'play-indicator';
-            playIndicator.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            `;
-            thumbDiv.appendChild(playIndicator);
-            
-            const title = document.createElement('div');
-            title.className = 'game-title';
-            title.textContent = game.name;
-            
-            card.appendChild(thumbDiv);
-            card.appendChild(title);
-            
-            // 添加点击事件
-            card.addEventListener('click', function() {
-                switchGame(game.id);
-            });
-            
-            return card;
-        }
-
-        // 切换游戏
-        function switchGame(gameId) {
-            // 隐藏所有游戏
-            document.querySelectorAll('.game-frame').forEach(frame => {
-                frame.classList.remove('active');
-            });
-            
-            // 显示选中的游戏
-            document.getElementById(gameId).classList.add('active');
-            
-            // 更新侧边栏和底部导航项
-            document.querySelectorAll('.game-nav-card').forEach(card => {
-                if (card.dataset.game === gameId) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-            });
-        }
-
         // 创建浮动粒子
         function createParticle() {
             const particle = document.createElement('div');
             particle.className = 'floating-particle';
             
-            // 随机位置、大小和颜色
             const size = Math.random() * 4 + 1;
             const x = Math.random() * window.innerWidth;
             const y = Math.random() * window.innerHeight;
             const particleColors = ['rgba(0, 255, 255, 0.3)', 'rgba(255, 0, 255, 0.3)', 'rgba(153, 0, 255, 0.3)'];
             const color = particleColors[Math.floor(Math.random() * particleColors.length)];
-            const duration = Math.random() * 15 + 10; // 10-25秒
+            const duration = Math.random() * 15 + 10;
             const delay = Math.random() * 10;
             
             particle.style.width = `${size}px`;
@@ -885,8 +934,6 @@
             particle.style.top = `${y}px`;
             particle.style.backgroundColor = color;
             particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
-            
-            // 动画
             particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
             
             document.getElementById('particles-container').appendChild(particle);
@@ -897,12 +944,9 @@
             const container = document.querySelector('.game-frame-container');
             const screenWidth = window.innerWidth;
             
-            // 根据屏幕大小调整宽高比
             if (screenWidth < 768) {
-                // 移动端 - 使用4:3比例以获得更好的可见性
                 container.style.paddingBottom = '75%';
             } else {
-                // 桌面端 - 使用16:9比例
                 container.style.paddingBottom = '56.25%';
             }
         }
